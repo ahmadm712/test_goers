@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_goers_app/data/models/starwars_species_response_model.dart';
+import 'package:test_goers_app/ui/pages/detail_species/detail_species_page.dart';
 import 'package:test_goers_app/ui/pages/home/home_page.dart';
 
 var mainRoutes = (RouteSettings settings) {
@@ -7,23 +9,14 @@ var mainRoutes = (RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const HomePage(),
       );
-    // case SecondPage.routeName:
-    //   Map argument = settings.arguments as Map;
-    //   String name = argument['name'];
-    //   String selectedName = argument['selected_name'];
-    //   return MaterialPageRoute(
-    //     builder: (context) => SecondPage(
-    //       name: name,
-    //       selectedName: selectedName,
-    //     ),
-    //   );
-    // case ThridPage.routeName:
-    //   String name = settings.arguments as String;
-    //   return MaterialPageRoute(
-    //     builder: (context) => ThridPage(
-    //       name: name,
-    //     ),
-    //   );
+    case DetailSpeciesPage.routeName:
+      final species = settings.arguments as Species;
+
+      return MaterialPageRoute(
+        builder: (context) => DetailSpeciesPage(
+          species: species,
+        ),
+      );
 
     default:
       return MaterialPageRoute(

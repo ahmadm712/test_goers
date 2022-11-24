@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:test_goers_app/data/models/starwars_species_response_model.dart';
 import 'package:test_goers_app/utils/constants.dart';
 import 'package:test_goers_app/utils/failure.dart';
@@ -16,7 +18,7 @@ class ApiServices {
       if (response.statusCode == 200) {
         return starwarsSpeciesResponseModelFromJson(response.body);
       } else {
-        throw ServerFailure(response.body);
+        throw ServerFailure(json.decode(response.body));
       }
     } on ServerFailure catch (e) {
       throw ServerFailure(e.message);

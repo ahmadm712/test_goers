@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-const String imageAssets = 'assets/images/';
+const String assets = 'assets/';
 const String baseUrl = 'https://swapi.dev/api/';
+const String urlPlaceholder =
+    'https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg';
 
 scaffoldMessage(
     {required BuildContext context,

@@ -12,70 +12,70 @@ String starwarsSpeciesResponseModelToJson(StarwarsSpeciesResponseModel data) =>
 
 class StarwarsSpeciesResponseModel {
   StarwarsSpeciesResponseModel({
-    required this.count,
-    required this.next,
-    required this.previous,
-    required this.results,
+    this.count,
+    this.next,
+    this.previous,
+    this.species,
   });
 
-  int count;
-  String next;
-  String previous;
-  List<Result> results;
+  int? count;
+  String? next;
+  String? previous;
+  List<Species>? species;
 
   factory StarwarsSpeciesResponseModel.fromJson(Map<String, dynamic> json) =>
       StarwarsSpeciesResponseModel(
         count: json["count"],
         next: json["next"],
         previous: json["previous"],
-        results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+        species:
+            List<Species>.from(json["results"].map((x) => Species.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "count": count,
         "next": next,
         "previous": previous,
-        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "results": List<dynamic>.from(species!.map((x) => x.toJson())),
       };
 }
 
-class Result {
-  Result({
-    required this.name,
-    required this.classification,
-    required this.designation,
-    required this.averageHeight,
-    required this.skinColors,
-    required this.hairColors,
-    required this.eyeColors,
-    required this.averageLifespan,
-    required this.homeworld,
-    required this.language,
-    required this.people,
-    required this.films,
-    required this.created,
-    required this.edited,
-    required this.url,
+class Species {
+  Species({
+    this.name,
+    this.classification,
+    this.designation,
+    this.averageHeight,
+    this.skinColors,
+    this.hairColors,
+    this.eyeColors,
+    this.averageLifespan,
+    this.homeworld,
+    this.language,
+    this.people,
+    this.films,
+    this.created,
+    this.edited,
+    this.url,
   });
 
-  String name;
-  String classification;
-  String designation;
-  String averageHeight;
-  String skinColors;
-  String hairColors;
-  String eyeColors;
-  String averageLifespan;
-  String homeworld;
-  String language;
-  List<String> people;
-  List<String> films;
-  DateTime created;
-  DateTime edited;
-  String url;
+  String? name;
+  String? classification;
+  String? designation;
+  String? averageHeight;
+  String? skinColors;
+  String? hairColors;
+  String? eyeColors;
+  String? averageLifespan;
+  String? homeworld;
+  String? language;
+  List<String>? people;
+  List<String>? films;
+  DateTime? created;
+  DateTime? edited;
+  String? url;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory Species.fromJson(Map<String, dynamic> json) => Species(
         name: json["name"],
         classification: json["classification"],
         designation: json["designation"],
@@ -84,7 +84,7 @@ class Result {
         hairColors: json["hair_colors"],
         eyeColors: json["eye_colors"],
         averageLifespan: json["average_lifespan"],
-        homeworld: json["homeworld"],
+        homeworld: json["homeworld"] ?? "",
         language: json["language"],
         people: List<String>.from(json["people"].map((x) => x)),
         films: List<String>.from(json["films"].map((x) => x)),
@@ -104,10 +104,10 @@ class Result {
         "average_lifespan": averageLifespan,
         "homeworld": homeworld,
         "language": language,
-        "people": List<dynamic>.from(people.map((x) => x)),
-        "films": List<dynamic>.from(films.map((x) => x)),
-        "created": created.toIso8601String(),
-        "edited": edited.toIso8601String(),
+        "people": List<dynamic>.from(people!.map((x) => x)),
+        "films": List<dynamic>.from(films!.map((x) => x)),
+        "created": created!.toIso8601String(),
+        "edited": edited!.toIso8601String(),
         "url": url,
       };
 }

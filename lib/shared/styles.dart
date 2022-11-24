@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color kPrimaryColor = Color(0xff2B637B);
-const Color kBlackColor = Colors.black;
-const Color kStrongBlueColor = Color(0xff554AF0);
-const Color kGreyColor = Color(0xff686777);
-
-const Color kLightBackgroundColor = Color(0xffF6F8FB);
-const Color kDarkBackgroundColor = Color(0xff020518);
-const Color kNumberBackgroundColor = Color(0xff1A1D2E);
-
 // Text Styles
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: kBlackColor,
@@ -17,10 +8,6 @@ TextStyle blackTextStyle = GoogleFonts.poppins(
 
 TextStyle whiteTextStyle = GoogleFonts.poppins(
   color: Colors.white,
-);
-
-TextStyle greyTextStyle = GoogleFonts.poppins(
-  color: kGreyColor,
 );
 
 // Font Weight
@@ -31,3 +18,24 @@ FontWeight semiBold = FontWeight.w600;
 FontWeight bold = FontWeight.w700;
 FontWeight extraBold = FontWeight.w800;
 FontWeight black = FontWeight.w900;
+
+// colors
+const Color kRichBlack = Color(0xFF000814);
+const Color kOxfordBlue = Color(0xFF001D3D);
+const Color kPrussianBlue = Color(0xFF003566);
+const Color kMikadoYellow = Color(0xFFffc300);
+const Color kDavysGrey = Color(0xFF4B5358);
+const Color kGrey = Color(0xFF303030);
+const Color kPrimaryColor = Color(0xFFffc300);
+const Color kBlackColor = Colors.black;
+const Color kStrongBlueColor = Color(0xff554AF0);
+
+// text style
+final TextStyle kHeading5 =
+    GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.w400);
+final TextStyle kHeading6 = GoogleFonts.poppins(
+    fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15);
+final TextStyle kSubtitle = GoogleFonts.poppins(
+    fontSize: 15, fontWeight: FontWeight.w400, letterSpacing: 0.15);
+final TextStyle kBodyText = GoogleFonts.poppins(
+    fontSize: 13, fontWeight: FontWeight.w400, letterSpacing: 0.25);

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_goers_app/ui/pages/home/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_goers_app/services/api_services.dart';
+import 'package:test_goers_app/shared/styles.dart';
+import 'package:test_goers_app/ui/bloc/list_starwar_species/list_starwar_species_bloc.dart';
+import 'package:test_goers_app/ui/pages/splash/splash_page.dart';
 import 'package:test_goers_app/utils/routes.dart';
 
 void main() {
@@ -12,13 +16,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Starwar Goers Test App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    final ApiServices apiServices = ApiServices();
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ListStarwarSpeciesBloc(apiServices),
+        )
+      ],
+      child: MaterialApp(
+        title: 'Starwar Goers Test App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: kPrimaryColor,
+          ),
+        ),
+        home: const SplashScreenPage(),
+        onGenerateRoute: mainRoutes,
       ),
-      home: const HomePage(),
-      onGenerateRoute: mainRoutes,
     );
   }
 }
